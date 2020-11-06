@@ -1,13 +1,22 @@
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>body {
-  margin: 10px;
-  Font-family: arial;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+	font-family: Arial;
 }
-.menu {
-  width: 110px
+
+#menu {
+
+  cursor: pointer;
+   -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
-.menu div {
+
+#content {
+  cursor: pointer;
   height: 0px;
   overflow: hidden;
   -webkit-transition: all 0.4s ease-in-out;
@@ -16,18 +25,29 @@
   transition: all 0.4s ease-in-out;
 }
 
-.menu:hover, .menu:active div {
-  height: 35px;
+#content {
+  overflow: hidden;
+  height: 0px;
 }
-
 </style>
+<script>
+   function changec() {
+       var xDiv = document.getElementById('content');
+       
+       if (xDiv.style.height == '') 
+           xDiv.style.height = '35px'
+       else 
+           xDiv.style.height = ''
+}
+</script>
 </head>
-<div class="menu"><b>fuck pitchfork</b>
-    <div>
-        <a href="#">recent</a><br>
-        <a href="#">archive</a>
-    </div>
+<body>
+<div id="menu" onclick="changec()"><b>fuck pitchfork</b></div>
+<div id="content">
+<a href="recent.html">recent</a><br>
+<a href="archive.html">archive</a>
 </div>
 <p>
 Putting words and meaning into music is a rather daunting task, where the lyricism can be magic, fleeting and intrinsically infinite. So how does one describe such wizard: Omavi Minder seems to meet no such obstacle when etching his obscure and introspective thinkings onto wax.
 </p>
+</body>
