@@ -14,18 +14,88 @@
     <link rel="icon" href="./favicon.png" type="image/png" />
     <link type="application/opensearchdescription+xml" rel="search" href="./search.xml"/>
   </head>
-  <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-      <h1>
-        <a href="./">fuckpitchfork</a>
-        <form align="centre" id="search_form" autocomplete="off">
-          <input align="centre" id="search_input">
-        </form>
-      </h1>
-      <ul id="list">
-      </ul>
-    </div>
-    <script>
+<style>
+@font-face {
+	font-family: regularOne;
+	src: url(a.ttf);
+}
+@font-face {
+	font-family: otherOne;
+	src: url(b.ttf);
+}
+@font-face {
+	font-family: lastOne;
+	src: url(c.ttf);
+}
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: -30;
+}
+
+/* Control the right side */
+.right {
+  right: 30;
+}
+
+</style>
+<body style="padding: 50px; user-select: none; -webkit-user-select: none;">
+
+	<div class="split left">
+	
+		<div style="padding-right: 50px;">
+		
+			<a href="index.html" style="cursor: pointer; text-decoration: none; letter-spacing: -3px;">
+				<h1 style="font-family: regularOne; color: ff3333; cursor: pointer; text-align: right;">
+				fuck pitchfork
+				</h1>
+			</a>
+			<ul style="font-family: regularOne; list-style: none;  text-align: right;">
+				<li>
+				<a href="new.html" style="cursor: pointer; text-decoration: none; color: black;">
+				new
+				</a>
+				</li>
+				<li>
+				<a href="search.html" style="cursor: pointer; text-decoration: none; color: black;">
+				search
+				</a>
+				</li>
+				<li>
+				<a href="archive.html" style="cursor: pointer; text-decoration: none; color: black;">
+				archive
+				</a>
+				</li>
+				<li>
+				<a href="request.html" style="cursor: pointer; text-decoration: none; color: black;">
+				request
+				</a>
+				</li>
+			</ul>
+			
+		</div>
+		
+		<div class="split right">
+			<h1>
+			 <form style="padding-top: 10px;" align="centre" id="search_form" autocomplete="off">
+        		  <input style="font-family: regularOne;" align="centre" id="search_input" type="text" placeholder="search..">
+       		 </form>
+			</h1>
+			<div style="list-style: none; font-family: otherOne;" id="list">
+    	  </div>
+		</div>
+	</div>
+	 <script>
       // Filter files by search term match and clean out non recipe files
       const filterFiles = (filter) => {
         filter = filter.toLowerCase()
@@ -34,6 +104,7 @@
           const fileName = filePath.replace('.html', '').toLowerCase().replace(/-/g, '');
           const isMarkdown = (/.html/).test(filePath);
           const isNotLicense = filePath !== 'index.html';
+          const isNotSearch = filePath !== 'search.html';
           const isInFilter = filter.split(' ')
             .every((token) => fileName.indexOf(token.toLowerCase()) !== -1)
           return isMarkdown && isNotLicense && isInFilter;
@@ -67,7 +138,7 @@
         for (let file of data.filter(filterFiles(filter)).sort(sortFiles(filter))) {
           const fileName = file.path.replace('.html', '');
           const fileDisplayName = fileName.split('-').join(' ');
-          htmlString += `<li><a href="${fileName}">${fileDisplayName}</a></li>`;
+          htmlString += `<a style="color:black; text-decoration: none;" href="${fileName}">${fileDisplayName}</a><br>`;
         }
         document.getElementById('list').innerHTML = htmlString;
       }
@@ -107,5 +178,5 @@
         navigator.serviceWorker.register('./serviceworker.js');
       }
     </script>
-  <body>
+</body>
 </html>
