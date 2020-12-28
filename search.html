@@ -109,7 +109,7 @@
 	  const isNotNew = filePath !== 'new.html';
           const isInFilter = filter.split(' ')
             .every((token) => fileName.indexOf(token.toLowerCase()) !== -1)
-          return isHtml && isNotIndex && && isNotSearch && isNotNew && isNotArchive isInFilter;
+          return isHtml && isNotIndex && isNotSearch && isNotNew && isNotArchive && isInFilter;
         }
       }
       // Match by closest to start of word then earliest word
