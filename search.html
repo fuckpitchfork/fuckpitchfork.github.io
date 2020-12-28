@@ -102,12 +102,14 @@
         return (file) => {
           const filePath = file.path;
           const fileName = filePath.replace('.html', '').toLowerCase().replace(/-/g, '');
-          const isMarkdown = (/.html/).test(filePath);
-          const isNotLicense = filePath !== 'index.html';
+          const isHtml = (/.html/).test(filePath);
+          const isNotIndex = filePath !== 'index.html';
           const isNotSearch = filePath !== 'search.html';
+	  const isNotArchive = filePath !== 'archive.html';
+	  const isNotNew = filePath !== 'new.html';
           const isInFilter = filter.split(' ')
             .every((token) => fileName.indexOf(token.toLowerCase()) !== -1)
-          return isMarkdown && isNotLicense && isInFilter;
+          return isHtml && isNotIndex && && isNotSearch && isNotNew && isNotArchive isInFilter;
         }
       }
       // Match by closest to start of word then earliest word
