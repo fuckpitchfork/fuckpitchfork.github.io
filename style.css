@@ -1,15 +1,4 @@
-/*
-	Theme Name: 2Creative
-	Theme URI: http://www.2creative.se
-	Description: Theme to 2Creative
-	Author: 2Creative
-	Author URI: http://www.2creative.se
-	Version: 3
-/************************************************************************************
-
-RESET
-*************************************************************************************/
- @font-face {
+@font-face {
 	font-family: regularOne;
 	src: url(a.ttf);
 }
@@ -43,6 +32,10 @@ body {
 	margin:0px;
 	padding:0px;
 	font-family:Arial, Helvetica, sans-serif;
+	-webkit-user-select: none; /* Safari */
+	  -ms-user-select: none; /* IE 10 and IE 11 */
+	  user-select: none; /* Standard syntax */
+	
 }
 
 h1, h2, h3, p{
@@ -138,6 +131,9 @@ body{
 	width:72.1%;
 	float:right;
 	overflow:hidden;
+	-webkit-user-select: text; /* Safari */
+	  -ms-user-select: text; /* IE 10 and IE 11 */
+	  user-select: text; /* Standard syntax */
 	}
 
 h1{
