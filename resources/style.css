@@ -1,14 +1,14 @@
 @font-face {
 	font-family: regularOne;
-	src: url(a.ttf);
+	src: url(./a.ttf);
 }
 @font-face {
 	font-family: otherOne;
-	src: url(b.ttf);
+	src: url(./b.ttf);
 }
 @font-face {
 	font-family: lastOne;
-	src: url(c.ttf);
+	src: url(./c.ttf);
 }
 
 html, body, div, span, applet, object, iframe,
